@@ -89,6 +89,11 @@ FullName* AddMarks(FullName people[], int marks[], int index) {
 	return people;
 }
 
+void PrintMarks(FullName man[], int index) {
+	cout << "Marks: " << man[index].mark.mark1 << man[index].mark.mark2 << man[index].mark.mark3 << man[index].mark.mark4 << man[index].mark.mark5 << man[index].mark.mark6 << man[index].mark.mark7 << man[index].mark.mark8 << man[index].mark.mark9 << man[index].mark.mark10;
+	cout << endl;
+}
+
 int main() {
 	/*FullName people;
 	bool choise;
@@ -115,7 +120,7 @@ int main() {
 	FullName* people = new FullName[size];
 	int a = 1, index; char surname[20], name[10], father[10]; int marks[10];
 	while (a != 0) {
-		cout << "Select\n1 - add new man\n2 - rate it \n3 - print peoples"; cin >> a;
+		cout << "Select\n1 - add new man\n2 - rate it \n3 - print peoples\n4 - print marks man"; cin >> a;
 		if (a == 1) {
 			cout << "Enter surname, name, father";
 			cin >> surname >> name >> father;
@@ -132,6 +137,10 @@ int main() {
 		}
 		if (a == 3) {
 			PrintPeoples(people, size);
+		}
+		if (a == 4) {
+			cout << " Which man?"; cin >> index;
+			PrintMarks(people, index - 1);
 		}
 
 	}
