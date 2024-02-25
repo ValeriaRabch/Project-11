@@ -51,7 +51,7 @@ void PrintArithmetic(FullName man) {
 }
 
 int main() {
-	FullName people;
+	/*FullName people;
 	bool choise;
 	cout << "Are you want to full people? "; cin >> choise;
 	if (choise == 1) {
@@ -70,7 +70,9 @@ int main() {
 			PrintArithmetic(people);
 		}
 		}
-	}
+	}*/
+
+	FullName people[5];
 
 	return 0;
 }
