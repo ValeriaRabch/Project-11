@@ -35,6 +35,13 @@ void Full(FullName &man) {
 	man.mark.mark10 = rand() % 2;
 }
 
+void PrintPeople(FullName man) {
+	cout << "Surname -" << man.surname << endl;
+	cout << "Name -" << man.name << endl;
+	cout << "Futher -" << man.father << endl;
+	cout << "Marks -" << man.mark.mark1 << ',' << man.mark.mark2 << ',' << man.mark.mark3 << ',' << man.mark.mark4 << ',' << man.mark.mark5 << ',' << man.mark.mark6 << ',' << man.mark.mark7 << ',' << man.mark.mark8 << ',' << man.mark.mark9 << ',' << man.mark.mark10 << endl;
+}
+
 int main() {
 	FullName people;
 	bool choise;
@@ -44,7 +51,15 @@ int main() {
 		Full(people);
 	}
 
-	
+	int a;
+	cout << "Select\n1 - print information\n2 - arithmetic mean\n"; cin >> a;
+	switch (a) {
+	case 1: {
+		PrintPeople(people);
+		}
+	case 2:
+
+	}
 
 	return 0;
 }
