@@ -94,6 +94,18 @@ void PrintMarks(FullName man[], int index) {
 	cout << endl;
 }
 
+void PrintDebtors(FullName man[], int size) {
+	cout << "List debtorses" << endl;
+	for (int i = 0;i < size; i++) {
+		if (man[i].mark.mark1 == 0 || man[i].mark.mark2 == 0 || man[i].mark.mark3 == 0 || man[i].mark.mark4 == 0 || man[i].mark.mark5 == 0 || man[i].mark.mark6 == 0 || man[i].mark.mark7 == 0 || man[i].mark.mark8 == 0 || man[i].mark.mark9 == 0 || man[i].mark.mark10 == 0) {
+			cout << "Surname -" << man[i].surname << endl;
+			cout << "Name -" << man[i].name << endl;
+			cout << "Futher -" << man[i].father << endl;
+			cout << "Marks -" << man[i].mark.mark1 << ',' << man[i].mark.mark2 << ',' << man[i].mark.mark3 << ',' << man[i].mark.mark4 << ',' << man[i].mark.mark5 << ',' << man[i].mark.mark6 << ',' << man[i].mark.mark7 << ',' << man[i].mark.mark8 << ',' << man[i].mark.mark9 << ',' << man[i].mark.mark10 << endl;
+		}
+	}
+}
+
 int main() {
 	/*FullName people;
 	bool choise;
@@ -120,7 +132,7 @@ int main() {
 	FullName* people = new FullName[size];
 	int a = 1, index; char surname[20], name[10], father[10]; int marks[10];
 	while (a != 0) {
-		cout << "Select\n1 - add new man\n2 - rate it \n3 - print peoples\n4 - print marks man"; cin >> a;
+		cout << "Select\n1 - add new man\n2 - rate it \n3 - print peoples\n4 - print marks man\n5 - print debtors"; cin >> a;
 		if (a == 1) {
 			cout << "Enter surname, name, father";
 			cin >> surname >> name >> father;
@@ -141,6 +153,9 @@ int main() {
 		if (a == 4) {
 			cout << " Which man?"; cin >> index;
 			PrintMarks(people, index - 1);
+		}
+		if (a == 5) {
+			PrintDebtors(people, size);
 		}
 
 	}
