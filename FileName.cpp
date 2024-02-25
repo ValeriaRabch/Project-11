@@ -76,6 +76,15 @@ FullName* AddNewPeople(FullName people[], int& size, char surname[], char name[]
 	return man;
 }
 
+void PrintPeoples(FullName man[], int size) {
+	for (int i = 0; i < size; i++) {
+		cout << "Surname -" << man[i].surname << endl;
+		cout << "Name -" << man[i].name << endl;
+		cout << "Futher -" << man[i].father << endl;
+		cout << "Marks -" << man[i].mark.mark1 << ',' << man[i].mark.mark2 << ',' << man[i].mark.mark3 << ',' << man[i].mark.mark4 << ',' << man[i].mark.mark5 << ',' << man[i].mark.mark6 << ',' << man[i].mark.mark7 << ',' << man[i].mark.mark8 << ',' << man[i].mark.mark9 << ',' << man[i].mark.mark10 << endl;
+	}
+}
+
 int main() {
 	/*FullName people;
 	bool choise;
@@ -98,20 +107,22 @@ int main() {
 		}
 	}*/
 
-	int size = 1;
+	int size = 0;
 	FullName* people = new FullName[size];
 	int a = 1; char surname[20], name[10], father[10];
 	while (a != 0) {
-		cout << "Select\n1 - add new man"; cin >> a;
-		switch (a) {
-		case 1: {
+		cout << "Select\n1 - add new man\n2 - print peoples"; cin >> a;
+		if (a == 1) {
 			cout << "Enter surname, name, father";
-			cin >> surname, name, father;
+			cin >> surname >> name >> father;
 			people = AddNewPeople(people, size, surname, name, father);
 		}
+		if (a == 2) {
+			PrintPeoples(people, size);
 		}
-		
+
 	}
 
+	delete[] people;
 	return 0;
 }
