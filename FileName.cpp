@@ -42,6 +42,14 @@ void PrintPeople(FullName man) {
 	cout << "Marks -" << man.mark.mark1 << ',' << man.mark.mark2 << ',' << man.mark.mark3 << ',' << man.mark.mark4 << ',' << man.mark.mark5 << ',' << man.mark.mark6 << ',' << man.mark.mark7 << ',' << man.mark.mark8 << ',' << man.mark.mark9 << ',' << man.mark.mark10 << endl;
 }
 
+int Arithmetic(FullName man) {
+	return (man.mark.mark1 + man.mark.mark2 + man.mark.mark3 + man.mark.mark4 + man.mark.mark5 + man.mark.mark6 + man.mark.mark7 + man.mark.mark8 + man.mark.mark9 + man.mark.mark10) / 10;
+}
+
+void PrintArithmetic(FullName man) {
+	cout << "Arithmetic mean =" << Arithmetic(man) << endl;
+}
+
 int main() {
 	FullName people;
 	bool choise;
@@ -51,14 +59,17 @@ int main() {
 		Full(people);
 	}
 
-	int a;
-	cout << "Select\n1 - print information\n2 - arithmetic mean\n"; cin >> a;
-	switch (a) {
-	case 1: {
-		PrintPeople(people);
+	int a = 1;
+	while (a != 3) {
+		cout << "Select\n1 - print information\n2 - arithmetic mean\n3 - leave"; cin >> a;
+		switch (a) {
+		case 1: {
+			PrintPeople(people);
 		}
-	case 2:
-
+		case 2: {
+			PrintArithmetic(people);
+		}
+		}
 	}
 
 	return 0;
