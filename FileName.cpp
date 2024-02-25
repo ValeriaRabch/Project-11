@@ -50,6 +50,32 @@ void PrintArithmetic(FullName man) {
 	cout << "Arithmetic mean =" << Arithmetic(man) << endl;
 }
 
+FullName* AddNewPeople(FullName people[], int& size, char surname[], char name[], char father[]) {
+	FullName* man = new FullName[size + 1];
+	for (int i = 0; i < size; i++) {
+		strcpy(man[i].surname, people[i].surname);
+		strcpy(man[i].name, people[i].name);
+		strcpy(man[i].father, people[i].father);
+		man[i].mark = people[i].mark;
+	}
+	strcpy(man[size].surname, surname);
+	strcpy(man[size].name, name);
+	strcpy(man[size].father, father);
+	man[size].mark.mark1 = rand() % 2;
+	man[size].mark.mark2 = rand() % 2;
+	man[size].mark.mark3 = rand() % 2;
+	man[size].mark.mark4 = rand() % 2;
+	man[size].mark.mark5 = rand() % 2;
+	man[size].mark.mark6 = rand() % 2;
+	man[size].mark.mark7 = rand() % 2;
+	man[size].mark.mark8 = rand() % 2;
+	man[size].mark.mark9 = rand() % 2;
+	man[size].mark.mark10 = rand() % 2;
+	size++;
+	delete[] people;
+	return man;
+}
+
 int main() {
 	/*FullName people;
 	bool choise;
@@ -72,7 +98,20 @@ int main() {
 		}
 	}*/
 
-	FullName people[5];
+	int size = 1;
+	FullName* people = new FullName[size];
+	int a = 1; char surname[20], name[10], father[10];
+	while (a != 0) {
+		cout << "Select\n1 - add new man"; cin >> a;
+		switch (a) {
+		case 1: {
+			cout << "Enter surname, name, father";
+			cin >> surname, name, father;
+			people = AddNewPeople(people, size, surname, name, father);
+		}
+		}
+		
+	}
 
 	return 0;
 }
