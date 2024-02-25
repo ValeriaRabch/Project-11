@@ -1,9 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<string.h>
 using namespace std;
 
-struct FullName {
-	char surname[20], name[10], father[10];
+struct Marks {
 	unsigned int mark1 : 1;
 	unsigned int mark2 : 1;
 	unsigned int mark3 : 1;
@@ -16,11 +16,13 @@ struct FullName {
 	unsigned int mark10 : 1;
 };
 
-FullName Full(FullName people) {
-	people.surname = { 'K', 'o','v','a','l','c','h','u','k' };
-}
+struct FullName {
+	char surname[20], name[10], father[10];
+	Marks mark;
+};
 
 int main() {
 	FullName people;
-	people.surname;
+
+	return 0;
 }
