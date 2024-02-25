@@ -21,8 +21,30 @@ struct FullName {
 	Marks mark;
 };
 
+void Full(FullName &man) {
+	cin >> man.surname >> man.name >> man.father;
+	man.mark.mark1 = rand() % 2;
+	man.mark.mark2 = rand() % 2;
+	man.mark.mark3 = rand() % 2;
+	man.mark.mark4 = rand() % 2;
+	man.mark.mark5 = rand() % 2;
+	man.mark.mark6 = rand() % 2;
+	man.mark.mark7 = rand() % 2;
+	man.mark.mark8 = rand() % 2;
+	man.mark.mark9 = rand() % 2;
+	man.mark.mark10 = rand() % 2;
+}
+
 int main() {
 	FullName people;
+	bool choise;
+	cout << "Are you want to full people? "; cin >> choise;
+	if (choise == 1) {
+		cout << "Enter surname, name and futher";
+		Full(people);
+	}
+
+	
 
 	return 0;
 }
