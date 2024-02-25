@@ -61,16 +61,6 @@ FullName* AddNewPeople(FullName people[], int& size, char surname[], char name[]
 	strcpy(man[size].surname, surname);
 	strcpy(man[size].name, name);
 	strcpy(man[size].father, father);
-	man[size].mark.mark1 = rand() % 2;
-	man[size].mark.mark2 = rand() % 2;
-	man[size].mark.mark3 = rand() % 2;
-	man[size].mark.mark4 = rand() % 2;
-	man[size].mark.mark5 = rand() % 2;
-	man[size].mark.mark6 = rand() % 2;
-	man[size].mark.mark7 = rand() % 2;
-	man[size].mark.mark8 = rand() % 2;
-	man[size].mark.mark9 = rand() % 2;
-	man[size].mark.mark10 = rand() % 2;
 	size++;
 	delete[] people;
 	return man;
@@ -83,6 +73,20 @@ void PrintPeoples(FullName man[], int size) {
 		cout << "Futher -" << man[i].father << endl;
 		cout << "Marks -" << man[i].mark.mark1 << ',' << man[i].mark.mark2 << ',' << man[i].mark.mark3 << ',' << man[i].mark.mark4 << ',' << man[i].mark.mark5 << ',' << man[i].mark.mark6 << ',' << man[i].mark.mark7 << ',' << man[i].mark.mark8 << ',' << man[i].mark.mark9 << ',' << man[i].mark.mark10 << endl;
 	}
+}
+
+FullName* AddMarks(FullName people[], int marks[], int index) {
+	people[index].mark.mark1 = marks[0];
+	people[index].mark.mark2 = marks[1];
+	people[index].mark.mark3 = marks[2];
+	people[index].mark.mark4 = marks[3];
+	people[index].mark.mark5 = marks[4];
+	people[index].mark.mark6 = marks[5];
+	people[index].mark.mark7 = marks[6];
+	people[index].mark.mark8 = marks[7];
+	people[index].mark.mark9 = marks[8];
+	people[index].mark.mark10 = marks[9];
+	return people;
 }
 
 int main() {
@@ -109,15 +113,24 @@ int main() {
 
 	int size = 0;
 	FullName* people = new FullName[size];
-	int a = 1; char surname[20], name[10], father[10];
+	int a = 1, index; char surname[20], name[10], father[10]; int marks[10];
 	while (a != 0) {
-		cout << "Select\n1 - add new man\n2 - print peoples"; cin >> a;
+		cout << "Select\n1 - add new man\n2 - rate it \n3 - print peoples"; cin >> a;
 		if (a == 1) {
 			cout << "Enter surname, name, father";
 			cin >> surname >> name >> father;
 			people = AddNewPeople(people, size, surname, name, father);
 		}
 		if (a == 2) {
+			cout << "Which man?"; cin >> index;
+			cout << "Enter marks(0 or 1)\n";
+			for (int i = 0; i < 10; i++) {
+				cout << "Enter - ";
+				cin >> marks[i];
+			}
+			AddMarks(people, marks, index - 1);
+		}
+		if (a == 3) {
 			PrintPeoples(people, size);
 		}
 
